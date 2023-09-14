@@ -4,7 +4,7 @@ import SideBar from '../components/defaultLayout';
 const HomePage = () => {
     return (
         <div>
-            <SideBar/>
+            <SideBar><h1>Hello Giii</h1></SideBar>
         
         </div>
     );
