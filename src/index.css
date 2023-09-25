@@ -1,0 +1,29 @@
+.item_button button {
+    margin-top: 20px;
+    width: 200px;
+    background-color: rgb(34, 78, 34);
+    color: white;
+}
+
+.item_button button:hover {
+    background-color: white;
+    color: black;
+}
+
+.header_items {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cart_item {
+    width: 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.cart_item p{
+    line-height: 10vh;
+}
