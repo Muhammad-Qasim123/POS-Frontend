@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/defaultLayout.css';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -9,16 +9,27 @@ import {
   HomeOutlined,
   CopyOutlined,
   UnorderedListOutlined,
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
+import { useSelector } from 'react-redux';
+
+
 const { Header, Sider, Content } = Layout;
 
 
 const SideBar = ({children}) => {
+  const cartItems=useSelector(state => state.cart)
+  const navigate=useNavigate();
+useEffect(()=>{
+localStorage.getItem("cart")
+},[])
+ 
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
 
   return (
     <Layout>
@@ -50,7 +61,7 @@ const SideBar = ({children}) => {
         </Menu>
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header style={{ padding: 0, background: colorBgContainer }} className='header_items'>
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -61,6 +72,11 @@ const SideBar = ({children}) => {
               height: 64,
             }}
           />
+          
+          <div className="cart_item" onClick={()=>navigate('/cart')}>
+            <p>{cartItems.cartItems.length}</p>
+            <ShoppingCartOutlined />
+          </div>
         </Header>
         <Content
           style={{
