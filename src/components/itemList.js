@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button,Card } from 'antd';
 import { useDispatch } from 'react-redux';
-import { addItemToCArt } from '../redux/rootReducer';
+// import { addItemToCArt } from '../redux/rootReducer';
+import { addItemToCart } from '../redux/rootReducer';
 const { Meta } = Card;
 const ItemList = ({item}) => {
   const dispatch=useDispatch();
   const handleSubmit=()=>{
-    dispatch(addItemToCArt(item))
+    dispatch(addItemToCart(item))
   
   }
     return (
