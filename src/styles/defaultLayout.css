@@ -1,0 +1,22 @@
+.ant-layout-has-sider{
+    padding: 5px;
+}
+.ant-layout.ant-layout-has-sider{
+    height:100vh ;
+}
+
+.ant-layout-sider{
+    border-radius: 10px;
+    padding-top: 10px;
+}
+.ant-layout-header{
+    box-shadow: 0 0 3px #ccc;
+    border-radius: 5px;
+    margin: 10px;
+}
+.ant-layout-content{
+    box-shadow: 0 0 3px #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    overflow: auto;
+}
