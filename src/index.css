@@ -30,3 +30,17 @@
 .itemList_actions{
     font-size: 20px;
 }
+.category{
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.category img{
+    margin-left: 10px;
+}
+.category-active{
+    border: 2px solid green;
+    background-color: rgb(173, 173, 173);
+}

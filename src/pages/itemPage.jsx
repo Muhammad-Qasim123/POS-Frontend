@@ -24,6 +24,18 @@ const ItemPage = () => {
         getAllItems()
     }, [])
 
+
+    const handleDelete=async(record)=>{
+        try {
+            await axios.post("/api/items/delete-item",{itemId:record._id})
+            message.success("Item Delete Successfully")
+            getAllItems();
+            setPopupModal(false);
+        } catch (error) {
+          console.log(error);
+       message.error("Something went wrong");
+        }
+    }
     /////Table data]
     const columns = [
         { title: "Name", dataIndex: "name" },
@@ -43,7 +55,11 @@ const ItemPage = () => {
                 onClick={() => {
                     setEditItem(record)
                     setPopupModal(true)
-                }} /><DeleteOutlined /></div>,
+                }} /><DeleteOutlined
+                onClick={()=>{
+                    handleDelete(record)
+                }}
+                /></div>,
         },
     ];
     const handleSubmit = async (value) => {
@@ -60,6 +76,7 @@ const ItemPage = () => {
             }
         } else {
             try {
+                console.log(editItem,"pennnnnnnnn");
                 const res = await axios.put("/api/items/edit-item", { ...value, itemId: editItem._id })
                 console.log(res);
                 message.success("Items update Successfully")
